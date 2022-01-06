@@ -1,0 +1,23 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+   <Dialog  title="New Benefit Area" contentWidth="70%" contentHeight="50%">
+    <content>
+        <f:SimpleForm editable="true" layout="ResponsiveGridLayout"
+			columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
+			<f:content>
+				<Label text="Benefit Area" />
+				<Input id="IDBENAREA" maxLength="2" enabled="{= ${benefitsAreaDialogModel>/editFlag} === false}" placeholder="Enter Benefit Area (2 CHAR)" value="{benefitsAreaDialogModel>/BENAREA}"/>
+				<Label text="Description" />
+				<Input id="IDDESC" maxLength="20" placeholder="Enter Description (20 CHAR)" value="{benefitsAreaDialogModel>/DESCP}"/>
+				<Label text="Country Grouping" />
+                <ComboBox id="IDCRTYKEY" placeholder="Select"  selectedKey="{benefitsAreaDialogModel>/CONGRP}" selectionChange="onBenefitAreaCountryChange" showSecondaryValues= "true" items="{/CountryGrouping}">
+                    <core:ListItem key="{Ctrykey}" text="{Ctryvalue}" additionalText = "{Ctrykey}"/>
+                </ComboBox>
+			</f:content>
+		</f:SimpleForm>
+    </content>
+    <buttons>
+        <Button text="Save"  press="onSaveNewBenefitArea" type="Accept" icon="sap-icon://save"/>
+        <Button text="Cancel" press="onCancelNewBenefitArea" icon="sap-icon://cancel"/>
+    </buttons>
+   </Dialog>
+</core:FragmentDefinition>

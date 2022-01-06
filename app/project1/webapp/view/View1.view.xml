@@ -1,0 +1,45 @@
+<mvc:View
+    controllerName="project1.controller.View1" xmlns:mvc="sap.ui.core.mvc"
+     displayBlock="true" xmlns="sap.m" xmlns:f="sap.f" xmlns:card="sap.f.cards" xmlns:core="sap.ui.core"
+     xmlns:table="sap.ui.table"
+    xmlns:l="sap.ui.layout" xmlns:form="sap.ui.layout.form" class="sapUiSizeCompact">
+    <Shell id="shell">
+        <App id="app">
+            <pages>
+                <Page id="page" title="{i18n>title}">
+                    <content >
+                          <ScrollContainer>
+                              <Table id="benefitAreasTable" items="{/BenefitsArea}">
+                                    <headerToolbar>
+                                        <OverflowToolbar>
+                                            <ToolbarSpacer/>
+                                                <Button text="New Benefit Area" icon="sap-icon://add" type="Accept" press="onNewBenefitAreaPress"/>
+                                            </OverflowToolbar>
+                                        </headerToolbar>
+                                        <columns>
+                                            <Column minScreenWidth="Tablet" demandPopin="true"><Text text="Benefit Area" /></Column>
+                                            <Column minScreenWidth="Tablet" demandPopin="true"><Text text="Description" /></Column>
+                                            <Column minScreenWidth="Tablet" demandPopin="true"><Text text="Country Grouping" /></Column>
+                                            <Column minScreenWidth="Tablet" hAlign="Center" demandPopin="true"><Text text="Action" /></Column>
+                                            </columns>
+                                                <items>
+                                                    <ColumnListItem>
+                                                                <cells>
+                                                                    <Text text="{BENAREA}"></Text>
+                                                                    <Text text="{DESCP}"></Text>
+                                                                    <Text text="{CONGRP}"></Text>
+                                                                    <HBox justifyContent="SpaceAround">
+                                                                        <Button icon="sap-icon://edit" press="onEdit" type="Emphasized"/>
+                                                                        <Button icon="sap-icon://delete" press="onDelete" type="Reject"/>
+                                                                    </HBox>
+                                                                </cells>
+                                                    </ColumnListItem>
+                                                </items>
+                                    </Table>
+                                </ScrollContainer>  
+                    </content>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
+</mvc:View>
